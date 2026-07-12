@@ -1,0 +1,12 @@
+{
+  "name": "freelancehub",
+  "private": true,
+  "scripts": {
+    "css:build": "tailwindcss -i ./wwwroot/css/app.css -o ./wwwroot/app.css --minify",
+    "css:watch": "tailwindcss -i ./wwwroot/css/app.css -o ./wwwroot/app.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
