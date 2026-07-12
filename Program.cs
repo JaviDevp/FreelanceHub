@@ -1,10 +1,18 @@
 using FreelanceHub.Components;
+using FreelanceHub.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+var connectionString = builder.Configuration.GetConnectionString("FreelanceHubDb")
+    ?? throw new InvalidOperationException("Connection string 'FreelanceHubDb' was not configured.");
+
+builder.Services.AddDbContextFactory<AppDbContext>(options =>
+    options.UseSqlite(connectionString));
 
 var app = builder.Build();
 
